@@ -36,6 +36,9 @@ export default function List() {
     };
   }, [todos]);
 
+  const progress =
+    totalCount === 0 ? 0 : Math.round((doneCount / totalCount) * 100);
+
   return (
     <div className="list">
       <div>
@@ -61,12 +64,12 @@ export default function List() {
                 stroke="#34d399"
                 strokeWidth="4"
                 fill="none"
-                strokeDasharray={`${(doneCount / totalCount) * 100 * 1.25} 125`}
+                strokeDasharray={`${progress * 1.25} 125`}
                 strokeLinecap="round"
               />
             </svg>
             <span className="absolute inset-0 flex items-center justify-center text-xs text-green-500">
-              {Math.round((doneCount / totalCount) * 100)}%
+              {typeof progress === "number" ? progress + "%" : "0%"}
             </span>
           </div>
         </div>

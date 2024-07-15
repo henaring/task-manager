@@ -29,11 +29,14 @@ export interface TodoState {
 }
 
 function todoReducer(state: TodoState[], action: TodoAction): TodoState[] {
+  let newState: TodoState[];
+
   switch (action.type) {
     case TodoActionKind.CREATE:
-      return [action.payload, ...state];
+      newState = [action.payload, ...state];
+      break;
     case TodoActionKind.UPDATE:
-      return state.map((todo) =>
+      newState = state.map((todo) =>
         todo.id === action.targetId
           ? {
               ...todo,
@@ -41,11 +44,18 @@ function todoReducer(state: TodoState[], action: TodoAction): TodoState[] {
             }
           : todo
       );
+      break;
     case TodoActionKind.DELETE:
-      return state.filter((todo) => todo.id !== action.targetId);
+      newState = state.filter((todo) => todo.id !== action.targetId);
+      break;
     default:
       return state;
   }
+
+  // 새로운 상태를 localStorage에 저장
+  localStorage.setItem("todos", JSON.stringify(newState));
+
+  return newState;
 }
 
 export { TodoActionKind, todoReducer };

@@ -17,10 +17,9 @@ export function Calendar() {
   for (let i = start; i <= end; i.add(1, "day")) {
     days.push(i.toDate());
   }
-  const initialIndex =
-    days.findIndex((day) => moment(day).isSame(new Date(), "day")) - 2;
-  const today = days.find((day) => moment(day).isSame(new Date(), "day"));
-  console.log(today);
+  const initialIndex = days.findIndex((day) =>
+    moment(day).isSame(new Date(), "day")
+  );
 
   React.useEffect(() => {
     if (!api) {

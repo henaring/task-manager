@@ -1,5 +1,5 @@
 import "./App.css";
-import { useRef, useReducer, useCallback, useMemo } from "react";
+import { useRef, useReducer, useCallback, useMemo, useEffect } from "react";
 import Editor from "./components/Editor";
 import Header from "./components/layout/Header";
 import List from "./components/List";
@@ -8,29 +8,16 @@ import { TodoStateContext } from "./hooks/useTodo.hook";
 import { TodoActionsContext } from "./hooks/useTodoActions.hook";
 import { Separator } from "@radix-ui/react-separator";
 
-const mockData: TodoState[] = [
-  {
-    id: 0,
-    isDone: false,
-    content: "react 공부하기",
-    date: new Date().getTime(),
-  },
-  {
-    id: 1,
-    isDone: true,
-    content: "빨래하기",
-    date: new Date().getTime(),
-  },
-  {
-    id: 2,
-    isDone: false,
-    content: "잠자기",
-    date: new Date().getTime(),
-  },
-];
-
 function App() {
-  const [todos, dispatch] = useReducer(todoReducer, mockData);
+  const savedData = localStorage.getItem("todos");
+  const initialTodos: TodoState[] = savedData ? JSON.parse(savedData) : [];
+
+  const [todos, dispatch] = useReducer(todoReducer, initialTodos);
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
+
   const idRef = useRef(3);
 
   const onCreate = useCallback((content: string) => {
