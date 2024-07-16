@@ -4,13 +4,14 @@ import moment from "moment";
 
 function Header() {
   return (
-    <header>
-      <div className="mt-10 py-5 space-y-5">
+    <header className="bg-primary">
+      <div className="mt-10 px-3 py-5 space-y-5">
         <div>
-          <p className="text-sm text-slate-400">
+          <p className="text-sm text-muted">
             {moment().format("DD, MMMM, YYYY")}
           </p>
-          <h3 className="text-xl">Daily Task</h3>
+
+          <h3 className="text-2xl font-bold text-white">Today's Tasks</h3>
         </div>
         <Calendar />
       </div>

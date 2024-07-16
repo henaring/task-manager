@@ -11,7 +11,7 @@
 }
 
 .list > input:focus {
-  @apply transition outline-none border-b-2 border-sky-500;
+  @apply transition outline-none border-b-2;
 }
 
 .list .todos_wrapper {

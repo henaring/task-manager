@@ -47,7 +47,7 @@ export function Calendar() {
             <CarouselItem key={index} className="pl-2 basis-1/6">
               <Card
                 className={`${
-                  index === initialIndex ? "bg-teal-400" : "bg-green-100"
+                  index === initialIndex ? "bg-primary" : "bg-muted"
                 } rounded-lg border-none shadow-none`}
               >
                 <CardContent className="flex aspect-square items-center justify-center py-2">

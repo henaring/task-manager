@@ -52,17 +52,15 @@ function App() {
   return (
     <div className="app">
       <Header />
-
       <Separator className="border-t border-green-800/10" />
-
       <TodoStateContext.Provider
         value={{
           todos,
         }}
       >
         <TodoActionsContext.Provider value={memoizedDispatch}>
-          <List />
           <Editor />
+          <List />
         </TodoActionsContext.Provider>
       </TodoStateContext.Provider>
     </div>

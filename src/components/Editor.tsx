@@ -13,7 +13,7 @@ export default function Editor() {
   };
 
   const onKeydown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && e.nativeEvent.isComposing == false) {
       onSubmit();
     }
   };
@@ -36,11 +36,11 @@ export default function Editor() {
           onChange={onChangeContent}
           onKeyDown={onKeydown}
           placeholder="New Task"
-          className="w-full border-emerald-600/20 bg-emerald-400/10 placeholder:italic placeholder:text-emerald-600/40"
+          className="w-full bg-muted placeholder:italic placeholder:text-muted-foreground"
         ></Input>
 
         <button
-          className="absolute inset-y-0 right-0 flex items-center justify-center w-10 h-full rounded-r-lg bg-teal-400"
+          className="absolute inset-y-0 right-0 flex items-center justify-center w-10 h-full rounded-r-lg bg-primary"
           onClick={onSubmit}
         >
           <span className="text-white font-light text-2xl p-2">+</span>
