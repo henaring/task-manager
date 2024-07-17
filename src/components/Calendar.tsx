@@ -34,34 +34,33 @@ export function Calendar() {
   }, [api, count, current]);
 
   return (
-    <div className="relative w-full max-w-sm overflow-hidden">
+    <div className="">
       <Carousel
         opts={{
-          startIndex: initialIndex >= 0 ? initialIndex - 2 : 0,
+          startIndex: initialIndex >= 0 ? initialIndex - 3 : 0,
         }}
-        className="w-11/1"
         setApi={setApi}
       >
         <CarouselContent>
           {Array.from({ length: days.length }).map((_, index) => (
-            <CarouselItem key={index} className="pl-2 basis-1/6">
+            <CarouselItem key={index} className="basis-[3.5rem]">
               <Card
                 className={`${
-                  index === initialIndex ? "bg-primary" : "bg-muted"
-                } rounded-lg border-none shadow-none`}
+                  index === initialIndex ? "bg-muted" : "bg-primary"
+                } border-none shadow-none`}
               >
-                <CardContent className="flex aspect-square items-center justify-center py-2">
+                <CardContent className="p-2">
                   <div className="flex flex-col items-center justify-center">
                     <span
                       className={`${
-                        index === initialIndex ? "text-white" : "text-teal-700"
+                        index === initialIndex ? "text-primary" : "text-muted"
                       } text-xs text-center`}
                     >
                       {moment(days[index]).format("ddd")}
                     </span>
                     <span
                       className={`${
-                        index === initialIndex ? "text-white" : "text-teal-700"
+                        index === initialIndex ? "text-primary" : "text-muted"
                       } text-md font-semibold text-center`}
                     >
                       {moment(days[index]).format("D")}

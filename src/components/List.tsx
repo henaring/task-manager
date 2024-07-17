@@ -61,14 +61,14 @@ export default function List() {
                 cx="24"
                 cy="24"
                 r="20"
-                stroke="#34d399"
+                stroke="#36BA98"
                 strokeWidth="4"
                 fill="none"
                 strokeDasharray={`${progress * 1.25} 125`}
                 strokeLinecap="round"
               />
             </svg>
-            <span className="absolute inset-0 flex items-center justify-center text-xs text-green-500">
+            <span className="absolute inset-0 flex items-center justify-center text-xs text-primary">
               {typeof progress === "number" ? progress + "%" : "0%"}
             </span>
           </div>
@@ -79,10 +79,15 @@ export default function List() {
         value={search}
         onChange={onChangeSearch}
       />
-      <div className="flex flex-col">
-        {filteredTodos.map((todo) => (
-          <TodoItem key={todo.id} todo={todo} />
-        ))}
+      <div className="flex flex-col flex-grow">
+        {filteredTodos.length > 0 ? (
+          filteredTodos.map((todo) => <TodoItem key={todo.id} todo={todo} />)
+        ) : (
+          <div className="flex flex-1 flex-col items-center justify-center -mt-[44px]">
+            <span className="text-gray-500">You have no tasks 🥹</span>
+            <span className="text-gray-300 text-sm">Write something below</span>
+          </div>
+        )}
       </div>
     </div>
   );

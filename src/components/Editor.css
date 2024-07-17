@@ -1,3 +1,7 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+.editor {
+  @apply fixed bottom-0 left-0 right-0 p-4 pb-[34px];
+}
+
+.editor-container {
+  @apply relative;
+}

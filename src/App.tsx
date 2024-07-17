@@ -6,7 +6,6 @@ import List from "./components/List";
 import { TodoActionKind, TodoState, todoReducer } from "./types/todoReducer";
 import { TodoStateContext } from "./hooks/useTodo.hook";
 import { TodoActionsContext } from "./hooks/useTodoActions.hook";
-import { Separator } from "@radix-ui/react-separator";
 
 function App() {
   const savedData = localStorage.getItem("todos");
@@ -52,15 +51,14 @@ function App() {
   return (
     <div className="app">
       <Header />
-      <Separator className="border-t border-green-800/10" />
       <TodoStateContext.Provider
         value={{
           todos,
         }}
       >
         <TodoActionsContext.Provider value={memoizedDispatch}>
-          <Editor />
           <List />
+          <Editor />
         </TodoActionsContext.Provider>
       </TodoStateContext.Provider>
     </div>

@@ -1,9 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 .list {
-  @apply flex flex-col gap-10;
+  @apply flex flex-col flex-grow gap-5 p-4;
 }
 
 .list > input {

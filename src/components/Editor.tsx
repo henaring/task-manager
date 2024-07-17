@@ -28,23 +28,33 @@ export default function Editor() {
   };
 
   return (
-    <div className="editor">
-      <div className="relative">
-        <Input
-          ref={contentRef}
-          value={content}
-          onChange={onChangeContent}
-          onKeyDown={onKeydown}
-          placeholder="New Task"
-          className="w-full bg-muted placeholder:italic placeholder:text-muted-foreground"
-        ></Input>
+    <div className="editor-container">
+      <div className="editor">
+        <div className="relative">
+          <Input
+            ref={contentRef}
+            value={content}
+            onChange={onChangeContent}
+            onKeyDown={onKeydown}
+            placeholder="New Task"
+            className="w-full bg-muted placeholder:italic placeholder:text-muted-foreground"
+          ></Input>
 
-        <button
-          className="absolute inset-y-0 right-0 flex items-center justify-center w-10 h-full rounded-r-lg bg-primary"
-          onClick={onSubmit}
-        >
-          <span className="text-white font-light text-2xl p-2">+</span>
-        </button>
+          <button
+            className="absolute inset-y-0 right-0 flex items-center justify-center w-10 h-full rounded-r-lg bg-primary"
+            onClick={onSubmit}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              fill="#ffffff"
+            >
+              <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" />
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
   );
