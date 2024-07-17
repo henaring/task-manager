@@ -49,7 +49,7 @@ function App() {
     [onCreate, onUpdate, onDelete]
   );
   return (
-    <div className="app">
+    <div className="app w-full sm:w-80 md:w-96 mx-auto flex flex-col h-screen">
       <Header />
       <TodoStateContext.Provider
         value={{

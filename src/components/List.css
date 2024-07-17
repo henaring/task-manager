@@ -1,5 +1,5 @@
 .list {
-  @apply flex flex-col flex-grow gap-5 p-4;
+  @apply flex flex-col flex-grow pb-[6rem] gap-5 p-4;
 }
 
 .list > input {
