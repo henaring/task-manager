@@ -1,4 +1,3 @@
-import "./App.css";
 import { useRef, useReducer, useCallback, useMemo, useEffect } from "react";
 import Editor from "./components/Editor";
 import Header from "./components/layout/Header";
@@ -49,7 +48,7 @@ function App() {
     [onCreate, onUpdate, onDelete]
   );
   return (
-    <div className="app w-full sm:w-80 md:w-96 mx-auto flex flex-col h-screen">
+    <div className="app w-full max-w-screen-sm sm:w-80 md:w-96 mx-auto flex flex-col h-screen">
       <Header />
       <TodoStateContext.Provider
         value={{
